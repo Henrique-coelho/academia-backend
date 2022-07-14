@@ -15,7 +15,7 @@ public class TreinoController {
 
     @CrossOrigin
     @PostMapping("/createOrUpdate")
-    public ResponseEntity<String> createUpdate(Treino treino){
+    public ResponseEntity<String> createUpdate(@RequestBody Treino treino){
         var returnValue = treinoService.saveTreino(treino);
         if(returnValue != null){
             return ResponseEntity.ok("Treino criado com sucesso");

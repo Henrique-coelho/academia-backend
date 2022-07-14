@@ -3,6 +3,7 @@ package basePackage.services.impl;
 import basePackage.dao.ExameDAO;
 import basePackage.entities.Exame;
 import basePackage.models.dto.CpfDTO;
+import basePackage.models.dto.MedidasDTO;
 import basePackage.repositories.ExameRepository;
 import basePackage.services.ExameService;
 
@@ -23,5 +24,15 @@ public class ExameServiceImpl implements ExameService {
     @Override
     public List<Exame> getExames(CpfDTO cpfDTO) {
         return exameDAO.findExamsByCPF(cpfDTO.getCpf());
+    }
+
+    @Override
+    public double getIMC(MedidasDTO medidasDTO) {
+        return medidasDTO.getPeso()/(Math.pow(medidasDTO.getAltura(),2));
+    }
+
+    @Override
+    public Exame saveExame(Exame exame) {
+        return exameRepository.save(exame);
     }
 }

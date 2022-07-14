@@ -1,12 +1,14 @@
 package basePackage.controllers;
 
+import basePackage.entities.Exame;
+import basePackage.entities.Pessoa;
 import basePackage.models.dto.CpfDTO;
+import basePackage.models.dto.MedidasDTO;
 import basePackage.services.ExameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/exame")
@@ -18,5 +20,20 @@ public class ExameController {
     @GetMapping("/getAuthorizationFromCPF")
     public boolean wasExamAuthorized(CpfDTO cpfDTO){
         return exameService.checkExame(cpfDTO);
+    }
+    @CrossOrigin
+    @GetMapping("/imc")
+    public double getIMC(@RequestBody MedidasDTO medidasDTO){
+        return exameService.getIMC(medidasDTO);
+    }
+    @CrossOrigin
+    @PostMapping("/createOrUpdate")
+    public ResponseEntity<String> createUpdate(@RequestBody Exame exame){
+        var returnValue = exameService.saveExame(exame);
+        if (returnValue != null) {
+            return ResponseEntity.ok("Resultados do exame cadastrados com sucesso!");
+        } else {
+            return new ResponseEntity<>("Erro ao cadastrar exame", HttpStatus.BAD_REQUEST);
+        }
     }
 }
