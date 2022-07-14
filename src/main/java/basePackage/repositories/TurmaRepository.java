@@ -1,7 +1,7 @@
 package basePackage.repositories;
 
-import basePackage.entities.Treino;
+import basePackage.entities.Turma;
 import org.springframework.data.repository.CrudRepository;
 
-public interface TurmaRepository extends CrudRepository<Treino,Long> {
+public interface TurmaRepository extends CrudRepository<Turma,Long> {
 }

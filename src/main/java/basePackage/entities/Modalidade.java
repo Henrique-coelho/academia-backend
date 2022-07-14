@@ -22,5 +22,5 @@ public class Modalidade {
 
     private String nome;
 
-    private Long limiteAlunos;
+    private int limiteAlunos;
 }

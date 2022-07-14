@@ -21,15 +21,15 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    String nome;
+    private String nome;
 
-    String cpf;
+    private String cpf;
 
-    Date dataNascimento;
+    private Date dataNascimento;
 
-    VinculoEnum vinculo;
+    private VinculoEnum vinculo;
 
-    String numCartao;
+    private String numCartao;
 
-    String donoCartao;
+    private String donoCartao;
 }
