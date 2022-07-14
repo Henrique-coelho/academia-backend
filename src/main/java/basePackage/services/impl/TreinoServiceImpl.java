@@ -16,7 +16,7 @@ public class TreinoServiceImpl implements TreinoService {
 
     @Override
     public boolean deleteTreino(String id) {
-        var exists = treinoRepository.existsById(Long.getLong(id));
+        var exists = treinoRepository.existsById(Long.parseLong(id));
         if(exists){
             treinoRepository.deleteById(Long.getLong(id));
             return true;

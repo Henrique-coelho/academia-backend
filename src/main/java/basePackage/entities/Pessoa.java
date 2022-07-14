@@ -26,6 +26,10 @@ public class Pessoa {
 
     private String cpf;
 
+    private String email;
+
+    private String senha;
+
     @JsonFormat(pattern="dd/MM/yyyy")
     private Date dataNascimento;
 

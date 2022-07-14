@@ -31,14 +31,14 @@ public class PessoaController {
     }
     @CrossOrigin
     @PostMapping("/login")
-    public List<Pessoa> getCredentials(@RequestBody LoginDTO loginDTO) {
+    public Pessoa getCredentials(@RequestBody LoginDTO loginDTO) {
         return pessoaService.validateLogin(loginDTO);
     }
 
     @CrossOrigin
-    @PostMapping("/userByCPF")
-    public Pessoa getUserByCPF(@RequestBody CpfDTO cpfDTO) {
-        return pessoaService.getPessoaByCPF(cpfDTO);
+    @GetMapping("/userByCPF/{cpf}")
+    public Pessoa getUserByCPF(@PathVariable("cpf") String cpf) {
+        return pessoaService.getPessoaByCPF(cpf);
     }
 
     @CrossOrigin

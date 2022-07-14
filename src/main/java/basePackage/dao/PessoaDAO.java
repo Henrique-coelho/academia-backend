@@ -18,18 +18,18 @@ public class PessoaDAO {
         this.emf = emf;
     }
 
-    public List<Pessoa> findAllUserByCredentials(String email, String senha){
+    public Pessoa findAllUserByCredentials(String email, String senha){
         EntityManager entityManager = emf.createEntityManager();
-        Query query = entityManager.createQuery("SELECT c FROM Pessoa c WHERE c.email=:email and c.senha=:senha");
+        Query query = entityManager.createQuery("SELECT p FROM Pessoa p WHERE p.email=:email and p.senha=:senha");
         query.setParameter("email", email);
         query.setParameter("senha", senha);
 
-        return query.getResultList();
+        return (Pessoa) query.getSingleResult();
     }
 
     public List<Pessoa> findUserByCPF(String cpf){
         EntityManager entityManager = emf.createEntityManager();
-        Query query = entityManager.createQuery("SELECT c FROM Pessoa c WHERE c.cpf=:cpf");
+        Query query = entityManager.createQuery("SELECT p FROM Pessoa p WHERE p.cpf=:cpf");
         query.setParameter("cpf", cpf);
 
         return query.getResultList();

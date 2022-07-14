@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface PessoaService {
     Pessoa saveCliente(Pessoa pessoa);
-    Pessoa getPessoaByCPF(CpfDTO cpfDTO);
+    Pessoa getPessoaByCPF(String cpf);
     Optional<Pessoa> getPessoa(String id);
-    List<Pessoa> validateLogin(LoginDTO loginDTO);
+    Pessoa validateLogin(LoginDTO loginDTO);
 }

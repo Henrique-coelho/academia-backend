@@ -6,17 +6,20 @@ import basePackage.models.dto.CpfDTO;
 import basePackage.models.dto.MedidasDTO;
 import basePackage.repositories.ExameRepository;
 import basePackage.services.ExameService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ExameServiceImpl implements ExameService {
+    @Autowired
     private ExameRepository exameRepository;
+    @Autowired
     private ExameDAO exameDAO;
     @Override
-    public Boolean checkExame(CpfDTO cpfDTO) {
-        List<Exame> exames = getExames(cpfDTO);
+    public Boolean checkExame(String cpf) {
+        List<Exame> exames = getExames(cpf);
         if(!exames.isEmpty()){
             return exames.get(0).getAutorizado();
         }
@@ -24,8 +27,8 @@ public class ExameServiceImpl implements ExameService {
     }
 
     @Override
-    public List<Exame> getExames(CpfDTO cpfDTO) {
-        return exameDAO.findExamsByCPF(cpfDTO.getCpf());
+    public List<Exame> getExames(String cpf) {
+        return exameDAO.findExamsByCPF(cpf);
     }
 
     @Override

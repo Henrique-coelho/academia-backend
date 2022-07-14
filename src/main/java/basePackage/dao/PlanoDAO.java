@@ -20,7 +20,7 @@ public class PlanoDAO {
 
     public List<Plano> findAllPlans(String modalidade){
         EntityManager entityManager = emf.createEntityManager();
-        Query query = entityManager.createQuery("SELECT p FROM Plano p, Modalidade m WHERE p.modalidade==m and m.nome==:modalidade");
+        Query query = entityManager.createQuery("SELECT p FROM Plano p, Modalidade m WHERE p.modalidade=m and m.nome=:modalidade");
         query.setParameter("modalidade", modalidade);
 
         return query.getResultList();

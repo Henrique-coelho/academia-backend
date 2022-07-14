@@ -25,8 +25,8 @@ public class PessoaServiceImpl implements PessoaService {
     }
 
     @Override
-    public Pessoa getPessoaByCPF(CpfDTO cpfDTO) {
-        List<Pessoa> queryResult = pessoaDAO.findUserByCPF(cpfDTO.getCpf());
+    public Pessoa getPessoaByCPF(String cpf) {
+        List<Pessoa> queryResult = pessoaDAO.findUserByCPF(cpf);
         if(!queryResult.isEmpty()){
             return queryResult.get(0);
         }
@@ -39,7 +39,7 @@ public class PessoaServiceImpl implements PessoaService {
     }
 
     @Override
-    public List<Pessoa> validateLogin(LoginDTO loginDTO){
-        return pessoaDAO.findAllUserByCredentials(loginDTO.getEmail(), loginDTO.getSenha());
+    public Pessoa validateLogin(LoginDTO loginDTO){
+        return pessoaRepository.findAllUserByCredentials(loginDTO.getEmail(), loginDTO.getSenha());
     }
 }
