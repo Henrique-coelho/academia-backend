@@ -17,13 +17,13 @@ public class ExameController {
     private ExameService exameService;
 
     @CrossOrigin
-    @GetMapping("/getAuthorizationFromCPF")
-    public boolean wasExamAuthorized(CpfDTO cpfDTO){
+    @PostMapping("/getAuthorizationFromCPF")
+    public Boolean wasExamAuthorized(@RequestBody CpfDTO cpfDTO){
         return exameService.checkExame(cpfDTO);
     }
     @CrossOrigin
-    @GetMapping("/imc")
-    public double getIMC(@RequestBody MedidasDTO medidasDTO){
+    @PostMapping("/imc")
+    public Double getIMC(@RequestBody MedidasDTO medidasDTO){
         return exameService.getIMC(medidasDTO);
     }
     @CrossOrigin

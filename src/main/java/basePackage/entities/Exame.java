@@ -15,16 +15,16 @@ public class Exame {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private double peso;
+    private Double peso;
 
-    private double altura;
+    private Double altura;
 
-    private boolean autorizado;
+    private Boolean autorizado;
 
-    @OneToOne
+    @ManyToOne
     private Pessoa aluno;
 
-    @OneToOne
+    @ManyToOne
     private Pessoa medico;
 
     private String descricao;

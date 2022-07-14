@@ -6,17 +6,19 @@ import basePackage.models.dto.CpfDTO;
 import basePackage.models.dto.MedidasDTO;
 import basePackage.repositories.ExameRepository;
 import basePackage.services.ExameService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ExameServiceImpl implements ExameService {
     private ExameRepository exameRepository;
     private ExameDAO exameDAO;
     @Override
-    public boolean checkExame(CpfDTO cpfDTO) {
+    public Boolean checkExame(CpfDTO cpfDTO) {
         List<Exame> exames = getExames(cpfDTO);
         if(!exames.isEmpty()){
-            return exames.get(0).isAutorizado();
+            return exames.get(0).getAutorizado();
         }
         return false;
     }
@@ -27,7 +29,7 @@ public class ExameServiceImpl implements ExameService {
     }
 
     @Override
-    public double getIMC(MedidasDTO medidasDTO) {
+    public Double getIMC(MedidasDTO medidasDTO) {
         return medidasDTO.getPeso()/(Math.pow(medidasDTO.getAltura(),2));
     }
 

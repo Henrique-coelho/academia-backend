@@ -22,7 +22,7 @@ public class Plano {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private Modalidade modalidade;
 
     private int dias;

@@ -34,25 +34,23 @@ public class PessoaController {
     public List<Pessoa> getCredentials(@RequestBody LoginDTO loginDTO) {
         return pessoaService.validateLogin(loginDTO);
     }
+
     @CrossOrigin
-    @GetMapping("/userByCPF")
+    @PostMapping("/userByCPF")
     public Pessoa getUserByCPF(@RequestBody CpfDTO cpfDTO) {
         return pessoaService.getPessoaByCPF(cpfDTO);
     }
 
     @CrossOrigin
-    @GetMapping("/userById")
-    public Pessoa getUser(@PathVariable String id) {
+    @GetMapping("/userById/{id}")
+    public Pessoa getUser(@PathVariable("id") String id) {
         Optional<Pessoa> pessoa = pessoaService.getPessoa(id);
-        if(pessoa.isPresent()){
-            return pessoa.get();
-        }
-        return null;
+        return pessoa.orElse(null);
     }
 
     @CrossOrigin
-    @GetMapping("/getAuthorization")
-    public boolean isAuthorized(@PathVariable String id){
+    @GetMapping("/getAuthorization/{id}")
+    public boolean isAuthorized(@PathVariable("id") String id){
         Optional<Pessoa> pessoa = pessoaService.getPessoa(id);
         if(pessoa.isPresent()){
             VinculoEnum vinculo = pessoa.get().getVinculo();

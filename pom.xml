@@ -14,7 +14,7 @@
 	<name>spring-template-backend</name>
 	<description>Full stack project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 	</properties>
@@ -54,6 +54,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 

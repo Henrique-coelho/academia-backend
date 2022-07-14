@@ -3,7 +3,9 @@ package basePackage.services.impl;
 import basePackage.entities.Treino;
 import basePackage.repositories.TreinoRepository;
 import basePackage.services.TreinoService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TreinoServiceImpl implements TreinoService {
     private TreinoRepository treinoRepository;
 

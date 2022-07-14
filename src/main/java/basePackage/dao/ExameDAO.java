@@ -1,7 +1,6 @@
 package basePackage.dao;
 
 import basePackage.entities.Exame;
-import basePackage.entities.Pessoa;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

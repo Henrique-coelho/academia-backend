@@ -15,9 +15,9 @@ public class Treino {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     private Pessoa aluno;
 
-    @OneToOne
+    @ManyToOne
     private Pessoa professor;
 }

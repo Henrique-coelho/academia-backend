@@ -7,11 +7,11 @@ import basePackage.models.dto.MedidasDTO;
 import java.util.List;
 
 public interface ExameService {
-    boolean checkExame(CpfDTO cpfDTO);
+    Boolean checkExame(CpfDTO cpfDTO);
 
     List<Exame> getExames(CpfDTO cpfDTO);
 
-    double getIMC(MedidasDTO medidasDTO);
+    Double getIMC(MedidasDTO medidasDTO);
 
     Exame saveExame(Exame exame);
 }

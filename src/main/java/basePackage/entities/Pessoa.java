@@ -1,6 +1,7 @@
 package basePackage.entities;
 
 import basePackage.models.enums.VinculoEnum;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class Pessoa {
 
     private String cpf;
 
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date dataNascimento;
 
     private VinculoEnum vinculo;

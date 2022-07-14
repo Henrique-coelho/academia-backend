@@ -35,7 +35,7 @@ public class PessoaServiceImpl implements PessoaService {
 
     @Override
     public Optional<Pessoa> getPessoa(String id){
-        return pessoaRepository.findById(Long.getLong(id));
+        return pessoaRepository.findById(Long.parseLong(id));
     }
 
     @Override
