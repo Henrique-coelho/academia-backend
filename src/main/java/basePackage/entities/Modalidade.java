@@ -1,4 +1,5 @@
 package basePackage.entities;
+import basePackage.models.enums.ModalidadeEnum;
 import basePackage.models.enums.VinculoEnum;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,7 +21,7 @@ public class Modalidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private ModalidadeEnum nome;
 
     private int limiteAlunos;
 }

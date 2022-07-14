@@ -19,6 +19,8 @@ public class Exame {
 
     private double altura;
 
+    private boolean autorizado;
+
     @OneToOne
     private Pessoa aluno;
 

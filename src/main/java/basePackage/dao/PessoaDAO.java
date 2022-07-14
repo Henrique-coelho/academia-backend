@@ -27,5 +27,12 @@ public class PessoaDAO {
         return query.getResultList();
     }
 
+    public List<Pessoa> findUserByCPF(String cpf){
+        EntityManager entityManager = emf.createEntityManager();
+        Query query = entityManager.createQuery("SELECT c FROM Pessoa c WHERE c.cpf=:cpf");
+        query.setParameter("cpf", cpf);
+
+        return query.getResultList();
+    }
 }
 

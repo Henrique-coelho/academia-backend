@@ -7,9 +7,6 @@ import lombok.Getter;
 @Data
 @Getter
 @Builder
-public class LoginDTO {
-
-    private String email;
-
-    private String senha;
+public class CpfDTO {
+    String cpf;
 }

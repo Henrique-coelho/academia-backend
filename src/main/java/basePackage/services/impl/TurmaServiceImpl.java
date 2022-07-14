@@ -19,9 +19,12 @@ public class TurmaServiceImpl implements TurmaService {
     }
     @Override
     public Iterable<Pessoa> getAllAlunos(String id) {
+        Optional<Turma> turma = getTurmaById(id);
+        if(turma.isPresent()){
+            return (Iterable<Pessoa>) turma.get().getAlunos();
+        }
         return null;
     }
-
     @Override
     public int getEnrolledCount(Turma turma) {
         return (int) turma.getAlunos().stream().count();

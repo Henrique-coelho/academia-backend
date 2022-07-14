@@ -9,7 +9,6 @@ public interface TurmaService {
     Turma saveTurma(Turma turma);
     Iterable<Pessoa> getAllAlunos(String id);
     int getEnrolledCount(Turma turma);
-
     int getEnrollLimit(Turma turma);
     Optional<Turma> getTurmaById(String id);
 }

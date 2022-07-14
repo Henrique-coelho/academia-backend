@@ -23,7 +23,7 @@ public class TurmaController {
     }
 
     @CrossOrigin
-    @GetMapping("/addAluno")
+    @PostMapping("/addAluno")
     public ResponseEntity<String> addAluno(@RequestBody Pessoa aluno,@RequestBody Turma turma){
         if(turmaService.getEnrolledCount(turma) <= turmaService.getEnrollLimit(turma)){
             List<Pessoa> alunos = turma.getAlunos();
