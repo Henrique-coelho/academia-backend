@@ -31,6 +31,12 @@ public class ExameController {
     }
 
     @CrossOrigin
+    @PostMapping("/getAuthorizationFromCPF/{cpf}")
+    public List<Exame> getExamesFromCPF(@PathVariable("cpf") String cpf){
+        return exameService.getExames(cpf);
+    }
+
+    @CrossOrigin
     @PostMapping("/createOrUpdate")
     public ResponseEntity<String> createUpdate(@RequestBody Exame exame){
         var returnValue = exameService.saveExame(exame);
