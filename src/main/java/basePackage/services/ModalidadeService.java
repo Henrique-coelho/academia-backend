@@ -5,4 +5,6 @@ import basePackage.services.impl.ModalidadeServiceImpl;
 
 public interface ModalidadeService {
     Iterable<Modalidade> getAllModalidades();
+
+    Modalidade getModalidade(String id);
 }

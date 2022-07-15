@@ -34,7 +34,7 @@ public class PessoaServiceImpl implements PessoaService {
     }
 
     @Override
-    public Optional<Pessoa> getPessoa(String id){
+    public Optional<Pessoa> getPessoaById(String id){
         return pessoaRepository.findById(Long.parseLong(id));
     }
 

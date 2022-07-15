@@ -24,9 +24,9 @@ public class TreinoController {
     }
 
     @CrossOrigin
-    @PostMapping("/delete")
-    public ResponseEntity<String> deleteTreino(@PathVariable String treinoId){
-        var deletionSuccessful = treinoService.deleteTreino(treinoId);
+    @PostMapping("/delete/{id}")
+    public ResponseEntity<String> deleteTreino(@PathVariable("id") String id){
+        var deletionSuccessful = treinoService.deleteTreino(id);
         if(deletionSuccessful){
             return ResponseEntity.ok("Treino removido");
         }

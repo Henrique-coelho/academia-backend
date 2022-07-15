@@ -1,7 +1,6 @@
 package basePackage.controllers;
 
 import basePackage.entities.Pessoa;
-import basePackage.models.dto.CpfDTO;
 import basePackage.models.dto.LoginDTO;
 import basePackage.models.enums.VinculoEnum;
 import basePackage.services.PessoaService;
@@ -10,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -44,14 +42,14 @@ public class PessoaController {
     @CrossOrigin
     @GetMapping("/userById/{id}")
     public Pessoa getUser(@PathVariable("id") String id) {
-        Optional<Pessoa> pessoa = pessoaService.getPessoa(id);
+        Optional<Pessoa> pessoa = pessoaService.getPessoaById(id);
         return pessoa.orElse(null);
     }
 
     @CrossOrigin
     @GetMapping("/getAuthorization/{id}")
     public boolean isAuthorized(@PathVariable("id") String id){
-        Optional<Pessoa> pessoa = pessoaService.getPessoa(id);
+        Optional<Pessoa> pessoa = pessoaService.getPessoaById(id);
         if(pessoa.isPresent()){
             VinculoEnum vinculo = pessoa.get().getVinculo();
             if(vinculo == VinculoEnum.MEDICO || vinculo == VinculoEnum.PROFESSOR || vinculo == VinculoEnum.SECRETARIO){

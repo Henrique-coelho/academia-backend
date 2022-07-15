@@ -18,7 +18,7 @@ public class ExameDAO {
 
     public List<Exame> findExamsByCPF(String cpf){
         EntityManager entityManager = emf.createEntityManager();
-        Query query = entityManager.createQuery("SELECT e FROM Exame e, Pessoa p WHERE p.cpf = :cpf and e.aluno = p");
+        Query query = entityManager.createQuery("SELECT e FROM Exame e WHERE e.aluno.cpf = :cpf");
         query.setParameter("cpf", cpf);
 
         return query.getResultList();

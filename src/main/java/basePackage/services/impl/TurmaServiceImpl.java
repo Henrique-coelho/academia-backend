@@ -4,6 +4,7 @@ import basePackage.entities.Pessoa;
 import basePackage.entities.Turma;
 import basePackage.repositories.TurmaRepository;
 import basePackage.services.TurmaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,6 +12,7 @@ import java.util.Optional;
 @Service
 public class TurmaServiceImpl implements TurmaService {
 
+    @Autowired
     private TurmaRepository turmaRepository;
 
     @Override
@@ -37,6 +39,6 @@ public class TurmaServiceImpl implements TurmaService {
 
     @Override
     public Optional<Turma> getTurmaById(String id){
-        return turmaRepository.findById(Long.getLong(id));
+        return turmaRepository.findById(Long.parseLong(id));
     }
 }

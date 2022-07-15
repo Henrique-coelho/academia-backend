@@ -1,16 +1,21 @@
 package basePackage.services.impl;
 
 import basePackage.entities.Modalidade;
-import basePackage.repositories.ModalidadeRopository;
+import basePackage.repositories.ModalidadeRepository;
 import basePackage.services.ModalidadeService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ModalidadeServiceImpl implements ModalidadeService {
-    private ModalidadeRopository modalidadeRopository;
+    private ModalidadeRepository modalidadeRepository;
 
     @Override
     public Iterable<Modalidade> getAllModalidades() {
-        return modalidadeRopository.findAll();
+        return modalidadeRepository.findAll();
+    }
+
+    @Override
+    public Modalidade getModalidade(String id) {
+        return modalidadeRepository.findById(Long.parseLong(id)).orElse(null);
     }
 }
